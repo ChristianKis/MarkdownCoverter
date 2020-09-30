@@ -25,16 +25,18 @@ export class MainPage extends React.Component<MainPageProps, MainPageState> {
 
     render() {
         return (
-            <div>
-                <div>
+            <div className="container">
+                <div className="form-group">
                     <label>Input markdown</label>
-                    <textarea onChange={(e) => this.setState({ inputText: e.target.value })}></textarea>
+                    <textarea onChange={(e) => this.setState({ inputText: e.target.value })}
+                        className="form-control" />
                 </div>
-                <div>
+                <div className="form-group">
                     <label>Output html</label>
-                    <textarea value={this.state.html} readOnly></textarea>
+                    <div dangerouslySetInnerHTML={{__html: this.state.html}}>
+                    </div>
                 </div>
-                <button onClick={this.renderHtml}>Submit</button>
+                <button onClick={this.renderHtml} className="btn btn-primary">Submit</button>
             </div>
         )
     }
