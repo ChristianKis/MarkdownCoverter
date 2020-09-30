@@ -56,9 +56,9 @@ export class RowFormatter {
             currentCharIndex++;
         }
 
-        for (let [key, value] of pairs) {
+        pairs.forEach((value:string, key:string) => {
             text = text.replace(`[${key}](${value})`, `<a href="${value}">${key}</a>`);
-        }
+        })
 
         return text;
     };
